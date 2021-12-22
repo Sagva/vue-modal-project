@@ -8,7 +8,7 @@
   </div>
   <p>Welcome...</p>
   <br />
-  <button @click="toggleModal">Open modal</button>
+  <button @click.shift="toggleModal">Open modal (shift)</button>
 </template>
 
 <script>
