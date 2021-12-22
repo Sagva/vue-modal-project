@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   <input type="text" ref="name" />
   <button @click="handleClick">Click me</button>
-  <Modal />
+  <Modal :header="header" :text="text" theme="sale" />
 </template>
 
 <script>
@@ -15,6 +15,8 @@ export default {
   data() {
     return {
       title: "Vue app",
+      header: "Congratulations!",
+      text: "You are signed up",
     };
   },
   methods: {
