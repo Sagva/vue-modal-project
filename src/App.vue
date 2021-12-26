@@ -4,11 +4,29 @@
   <input type="text" ref="name" />
   <button @click="handleClick">Click me</button>
   <div v-if="showModal">
-    <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
+    <Modal theme="sale" @close="toggleModal">
+      <h1>Slots heading</h1>
+      <p>some text</p>
+      <template v-slot:links>
+        <a href="#">More info</a>
+        <a href="#">Sigh up now</a>
+      </template>
+    </Modal>
+  </div>
+  <div v-if="showModalTwo">
+    <Modal theme="sale" @close="toggleModalTwo">
+      <h1>Modal two</h1>
+      <p>asasa</p>
+      <template v-slot:links>
+        <a href="#">More info</a>
+        <a href="#">Sigh up now</a>
+      </template>
+    </Modal>
   </div>
   <p>Welcome...</p>
   <br />
   <button @click.shift="toggleModal">Open modal (shift)</button>
+  <button @click="toggleModalTwo">Open modal two</button>
 </template>
 
 <script>
@@ -24,6 +42,7 @@ export default {
       header: "Congratulations!",
       text: "You are signed up",
       showModal: false,
+      showModalTwo: false,
     };
   },
   methods: {
@@ -34,6 +53,9 @@ export default {
     },
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
     },
   },
 };
